@@ -35,6 +35,7 @@ namespace RestApiNegocio
             //Conexão com Mysql
             var connection = Configuration["MysqlConnection:MysqlConnectionString"];
             services.AddDbContext<MysqlContext>(opt=> opt.UseMySql(connection));
+            //Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestApiNegocio", Version = "v1" });

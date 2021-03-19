@@ -15,7 +15,7 @@ namespace RestApiNegocio.Models
         public string BookTitle { get; set; }
         [Column("Autor")]
         public string BookAutor { get; set; }
-        [Column("Descicao")]
+        [Column("Descricao")]
         public string BookDescricao { get; set; }
     }
 }

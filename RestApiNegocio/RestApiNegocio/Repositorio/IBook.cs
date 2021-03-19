@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace RestApiNegocio.Repositorio
 {
-    interface IBook
+    public interface IBook
     {
         public List<Book> AllBooks();
-      //  public Book CreateBook(Book book);
-        //public Book UpDateBook(Book book);
+        public Book SingleBook(int id);
+        public Book CreateBook(Book book);
+        public Book UpDateBook(Book book);
+        public Book DeleteBook(int id);
 
     }
 }
