@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RestApiNegocio.Models;
 using RestApiNegocio.Repositorio;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,28 @@ namespace RestApiNegocio.Controllers
         public IActionResult AllBook()
         {
             return Ok(_Books.AllBooks());
+        }
+        [HttpGet("{id}")]
+        public IActionResult SingleBook(int id)
+        {
+            return Ok(_Books.SingleBook(id));
+        }
+        [HttpPost]
+        public IActionResult Create([FromBody]Book book)
+        {
+            if (book == null) return BadRequest();
+            return Ok(_Books.CreateBook(book));
+        }
+        [HttpPut]
+        public IActionResult Update([FromBody] Book book)
+        {
+            return Ok(_Books.UpDateBook(book));
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteRoute(int id)
+        {
+            return Ok(_Books.DeleteBook(id));
         }
     }
 }

@@ -8,47 +8,47 @@ using System.Threading.Tasks;
 
 namespace RestApiNegocio.Repositorio.Implementação
 {
-    public class BookImplementation : IBook
+    public class FoodImplementation : IFood
     {
         private MysqlContext _context;
-        private DbSet<Book> _dataset;
+        private DbSet<Food> _dataset;
 
-        public BookImplementation(MysqlContext book)
+        public FoodImplementation(MysqlContext Food)
         {
-            this._context = book;
-            _dataset = _context.Set<Book>();
+            this._context = Food;
+            _dataset = _context.Set<Food>();
         }
 
-        public List<Book> AllBooks()
+        public List<Food> AllFoods()
         {
             return _dataset.ToList();
         }
 
-        public Book SingleBook(int id)
+        public Food SingleFood(int id)
         {
             if (id == null) return null;
-            return _dataset.SingleOrDefault(b => b.BookId.Equals(id));
+            return _dataset.SingleOrDefault(b => b.Food_id.Equals(id));
         }
-        public Book CreateBook(Book book)
+        public Food CreateFood(Food Food)
         {
             try
             {
-                _dataset.Add(book);
+                _dataset.Add(Food);
                 _context.SaveChanges();
             }
             catch (Exception)
             {
                 throw;
             }
-            return book;
+            return Food;
         }
 
-        public Book UpDateBook(Book book)
+        public Food UpDateFood(Food Food)
         {
-            if (book.BookId == null) return null;
+            if (Food.Food_id == null) return null;
             try
             {
-                _dataset.Update(book);
+                _dataset.Update(Food);
                 _context.SaveChanges();
             }
             catch (Exception)
@@ -56,12 +56,12 @@ namespace RestApiNegocio.Repositorio.Implementação
 
                 throw;
             }
-            return book;
+            return Food;
         }
-        public Book DeleteBook(int id)
+        public Food DeleteFood(int id)
         {
             if (id == null) return null;
-            var delete = _dataset.SingleOrDefault(b => b.BookId.Equals(id));
+            var delete = _dataset.SingleOrDefault(b => b.Food_id.Equals(id));
             try
             {
                 _dataset.Remove(delete);

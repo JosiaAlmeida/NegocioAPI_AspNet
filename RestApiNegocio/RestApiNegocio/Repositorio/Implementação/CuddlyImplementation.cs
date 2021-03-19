@@ -8,47 +8,47 @@ using System.Threading.Tasks;
 
 namespace RestApiNegocio.Repositorio.Implementação
 {
-    public class BookImplementation : IBook
+    public class CuddlyImplementation : ICuddly
     {
         private MysqlContext _context;
-        private DbSet<Book> _dataset;
+        private DbSet<Cuddly> _dataset;
 
-        public BookImplementation(MysqlContext book)
+        public CuddlyImplementation(MysqlContext Cuddly)
         {
-            this._context = book;
-            _dataset = _context.Set<Book>();
+            this._context = Cuddly;
+            _dataset = _context.Set<Cuddly>();
         }
 
-        public List<Book> AllBooks()
+        public List<Cuddly> AllCuddlys()
         {
             return _dataset.ToList();
         }
 
-        public Book SingleBook(int id)
+        public Cuddly SingleCuddly(int id)
         {
             if (id == null) return null;
-            return _dataset.SingleOrDefault(b => b.BookId.Equals(id));
+            return _dataset.SingleOrDefault(b => b.CuddlyId.Equals(id));
         }
-        public Book CreateBook(Book book)
+        public Cuddly CreateCuddly(Cuddly Cuddly)
         {
             try
             {
-                _dataset.Add(book);
+                _dataset.Add(Cuddly);
                 _context.SaveChanges();
             }
             catch (Exception)
             {
                 throw;
             }
-            return book;
+            return Cuddly;
         }
 
-        public Book UpDateBook(Book book)
+        public Cuddly UpDateCuddly(Cuddly Cuddly)
         {
-            if (book.BookId == null) return null;
+            if (Cuddly.CuddlyId == null) return null;
             try
             {
-                _dataset.Update(book);
+                _dataset.Update(Cuddly);
                 _context.SaveChanges();
             }
             catch (Exception)
@@ -56,12 +56,12 @@ namespace RestApiNegocio.Repositorio.Implementação
 
                 throw;
             }
-            return book;
+            return Cuddly;
         }
-        public Book DeleteBook(int id)
+        public Cuddly DeleteCuddly(int id)
         {
             if (id == null) return null;
-            var delete = _dataset.SingleOrDefault(b => b.BookId.Equals(id));
+            var delete = _dataset.SingleOrDefault(b => b.CuddlyId.Equals(id));
             try
             {
                 _dataset.Remove(delete);
