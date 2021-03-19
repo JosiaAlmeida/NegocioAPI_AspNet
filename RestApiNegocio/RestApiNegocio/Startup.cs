@@ -42,6 +42,8 @@ namespace RestApiNegocio
             });
             //Injeção de dependencia
             services.AddScoped<IBook, BookImplementation>();
+            services.AddScoped<IFood, FoodImplementation>();
+            services.AddScoped<ICuddly, CuddlyImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

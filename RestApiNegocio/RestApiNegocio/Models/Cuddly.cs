@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RestApiNegocio.Models
 {
     //Peluches
-    [Table("cluddys")]
+    [Table("cluddy")]
     public class Cuddly
     {
         [Column("id")]
