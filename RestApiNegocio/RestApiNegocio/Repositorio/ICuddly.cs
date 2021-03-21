@@ -8,11 +8,11 @@ namespace RestApiNegocio.Repositorio
 {
     public interface ICuddly
     {
-        public List<Cuddly> AllCuddlys();
-        public Cuddly SingleCuddly(int id);
-        public Cuddly CreateCuddly(Cuddly Cuddly);
-        public Cuddly UpDateCuddly(Cuddly Cuddly);
-        public Cuddly DeleteCuddly(int id);
+        public List<Cuddly> All();
+        public Cuddly Single(int id);
+        public Cuddly Create(Cuddly Cuddly);
+        public Cuddly UpDate(Cuddly Cuddly);
+        public Cuddly Delete(int id);
 
     }
 }

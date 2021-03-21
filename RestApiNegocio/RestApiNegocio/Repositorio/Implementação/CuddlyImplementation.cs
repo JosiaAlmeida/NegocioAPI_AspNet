@@ -19,17 +19,17 @@ namespace RestApiNegocio.Repositorio.Implementação
             _dataset = _context.Set<Cuddly>();
         }
 
-        public List<Cuddly> AllCuddlys()
+        public List<Cuddly> All()
         {
             return _dataset.ToList();
         }
 
-        public Cuddly SingleCuddly(int id)
+        public Cuddly Single(int id)
         {
             if (id == null) return null;
             return _dataset.SingleOrDefault(b => b.CuddlyId.Equals(id));
         }
-        public Cuddly CreateCuddly(Cuddly Cuddly)
+        public Cuddly Create(Cuddly Cuddly)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace RestApiNegocio.Repositorio.Implementação
             return Cuddly;
         }
 
-        public Cuddly UpDateCuddly(Cuddly Cuddly)
+        public Cuddly UpDate(Cuddly Cuddly)
         {
             if (Cuddly.CuddlyId == null) return null;
             try
@@ -58,7 +58,7 @@ namespace RestApiNegocio.Repositorio.Implementação
             }
             return Cuddly;
         }
-        public Cuddly DeleteCuddly(int id)
+        public Cuddly Delete(int id)
         {
             if (id == null) return null;
             var delete = _dataset.SingleOrDefault(b => b.CuddlyId.Equals(id));
@@ -74,6 +74,6 @@ namespace RestApiNegocio.Repositorio.Implementação
             }
             return delete;
         }
-
+        
     }
 }

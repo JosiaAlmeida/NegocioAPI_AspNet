@@ -13,5 +13,7 @@ namespace RestApiNegocio.Models.Context
         }
         public MysqlContext(DbContextOptions<MysqlContext> options) : base(options) { }
         public DbSet<Book> books { get; set; }
+        public DbSet<Cuddly> Cuddlies { get; set; }
+
     }
 }
