@@ -52,7 +52,6 @@ namespace RestApiNegocio
             });
             //Injeção de dependencia
             services.AddScoped<IBook, BookImplementation>();
-<<<<<<< HEAD
             services.AddScoped<ICuddly, CuddlyImplementation>();
         }
 
@@ -63,7 +62,7 @@ namespace RestApiNegocio
                 var envolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
                 var Evolve = new Evolve.Evolve(envolveConnection, msg => Log.Information(msg))
                 {
-                    Locations = new List<string> { "db/migration", "db/dataset" },
+                    Locations = new List<string> { "Migrates/migration", "Migrates/dataset" },
                     IsEraseDisabled = true
                 };
                 Evolve.Migrate();
@@ -73,10 +72,6 @@ namespace RestApiNegocio
                 Log.Error("Falha na migration ", ex);
                 throw;
             }
-=======
-            services.AddScoped<IFood, FoodImplementation>();
-            services.AddScoped<ICuddly, CuddlyImplementation>();
->>>>>>> master
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

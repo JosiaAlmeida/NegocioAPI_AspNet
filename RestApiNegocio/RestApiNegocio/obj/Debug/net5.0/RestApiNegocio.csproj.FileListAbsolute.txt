@@ -36,3 +36,7 @@ D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\
 D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Pomelo.JsonObject.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Evolve.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Serilog.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Serilog.Sinks.Console.dll
