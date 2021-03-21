@@ -11,7 +11,10 @@ namespace RestApiNegocio.Models.Context
         protected MysqlContext()
         {
         }
-        public MysqlContext(DbContextOptions<MysqlContext> options) : base(options) { }
+        public MysqlContext(DbContextOptions<MysqlContext> options) : base(options) {
+            ///Database.EnsureCreated();
+        }
+        //public DbSet<Usuario> usuarios { get; set; }
         public DbSet<Book> books { get; set; }
         public DbSet<Cuddly> Cuddlies { get; set; }
     }
