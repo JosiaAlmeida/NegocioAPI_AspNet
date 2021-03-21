@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using RestApiNegocio.Models.Context;
 using RestApiNegocio.Repositorio;
 using RestApiNegocio.Repositorio.Implementação;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,15 @@ namespace RestApiNegocio
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
+            Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -35,6 +39,12 @@ namespace RestApiNegocio
             //Conexão com Mysql
             var connection = Configuration["MysqlConnection:MysqlConnectionString"];
             services.AddDbContext<MysqlContext>(opt=> opt.UseMySql(connection));
+            //Migration
+            if (Environment.IsDevelopment())
+            {
+                Migration(connection);
+            }
+
             //Swagger
             services.AddSwaggerGen(c =>
             {
@@ -43,6 +53,25 @@ namespace RestApiNegocio
             //Injeção de dependencia
             services.AddScoped<IBook, BookImplementation>();
             services.AddScoped<ICuddly, CuddlyImplementation>();
+        }
+
+        private void Migration(string connection)
+        {
+            try
+            {
+                var envolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+                var Evolve = new Evolve.Evolve(envolveConnection, msg => Log.Information(msg))
+                {
+                    Locations = new List<string> { "db/migration", "db/dataset" },
+                    IsEraseDisabled = true
+                };
+                Evolve.Migrate();
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Falha na migration ", ex);
+                throw;
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
