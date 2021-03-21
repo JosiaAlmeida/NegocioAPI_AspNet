@@ -13,7 +13,13 @@ namespace RestApiNegocio.Models.Context
         }
         public MysqlContext(DbContextOptions<MysqlContext> options) : base(options) { }
         public DbSet<Book> books { get; set; }
+<<<<<<< HEAD
         public DbSet<Cuddly> Cuddlies { get; set; }
 
+=======
+        public DbSet<Food> Food { get; set; }
+        public DbSet<Cuddly> Cuddly { get; set; }
+        public DbSet<User> user { get; set; }
+>>>>>>> master
     }
 }

@@ -52,6 +52,7 @@ namespace RestApiNegocio
             });
             //Injeção de dependencia
             services.AddScoped<IBook, BookImplementation>();
+<<<<<<< HEAD
             services.AddScoped<ICuddly, CuddlyImplementation>();
         }
 
@@ -72,6 +73,10 @@ namespace RestApiNegocio
                 Log.Error("Falha na migration ", ex);
                 throw;
             }
+=======
+            services.AddScoped<IFood, FoodImplementation>();
+            services.AddScoped<ICuddly, CuddlyImplementation>();
+>>>>>>> master
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
