@@ -40,3 +40,10 @@ D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\
 D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Serilog.dll
 D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
 D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\Asp.Net\Aplicatio_MVC_AspNet\NegocioAPI_AspNet\RestApiNegocio\RestApiNegocio\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
