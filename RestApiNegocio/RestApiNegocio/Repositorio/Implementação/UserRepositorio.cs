@@ -44,16 +44,10 @@ namespace RestApiNegocio.Repositorio.Implementação
             return user;
         }
 
-        private string ComputerHash(string input, SHA256CryptoServiceProvider algorithm)
-        {
-            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-            Byte[] hashByte = algorithm.ComputeHash(inputBytes);
-            return BitConverter.ToString(hashByte);
-        }
 
         public Usuario UserLast(Usuario user)
         {
-            //var pass = ComputerHash(user.Password, new SHA256CryptoServiceProvider());
+            
             var result = usuarios.FirstOrDefault(x => x.Nome == user.Nome && x.Password == user.Password);
             try
             {

@@ -8,6 +8,7 @@ using RestApiNegocio.services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,7 +21,7 @@ namespace RestApiNegocio.Controllers
     {
         // GET: api/<AuthController>
         public IUser interfac;
-
+        private Criptografia criptografia = new Criptografia();
         private readonly ILogger<AuthController> _logger;
         public AuthController(ILogger<AuthController> logger ,IUser interfac)
         {
@@ -37,6 +38,7 @@ namespace RestApiNegocio.Controllers
             if (User == null)
                 return NotFound(new { message = "Usuario ou senha incorreta" });
             var token = TokenServices.GenerateToken(User);
+            user.Password = criptografia.ComputerHash(user.Password, new SHA256CryptoServiceProvider());
             return new
             {
                 User = User,
@@ -52,6 +54,7 @@ namespace RestApiNegocio.Controllers
             if (User == null)
                 return NotFound(new { message = "Usuario ou senha incorreta" });
             var token = TokenServices.GenerateToken(User);
+            user.Password = criptografia.ComputerHash(user.Password, new SHA256CryptoServiceProvider());
             return new
             {
                 User = User,
