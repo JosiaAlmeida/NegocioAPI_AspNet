@@ -75,6 +75,7 @@ namespace RestApiNegocio
             //Injeção de dependencia
             services.AddScoped<IBook, BookImplementation>();
             services.AddScoped<ICuddly, CuddlyImplementation>();
+            services.AddScoped<IUser, UserRepositorio>();
         }
 
         private void Migration(string connection)

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace RestApiNegocio.Models
 {
-    //[Table("usuario")]
+    [Table("user")]
     public class Usuario
     {
-      //  [Column("id")]
+        [Column("id")]
         public int id { get; set; }
-        //[Column("nome")]
+        [Column("nome")]
         public string Nome { get; set; }
-        //[Column("role")]
+        [Column("role")]
         public string Role { get; set; }
-        //[Column("password")]
+        [Column("password")]
         public string Password { get; set; }
     }
 }

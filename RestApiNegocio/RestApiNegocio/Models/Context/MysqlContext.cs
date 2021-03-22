@@ -12,9 +12,9 @@ namespace RestApiNegocio.Models.Context
         {
         }
         public MysqlContext(DbContextOptions<MysqlContext> options) : base(options) {
-            ///Database.EnsureCreated();
+            Database.EnsureCreated();
         }
-        //public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Usuario> usuarios { get; set; }
         public DbSet<Book> books { get; set; }
         public DbSet<Cuddly> Cuddlies { get; set; }
     }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RestApiNegocio.Models;
+using RestApiNegocio.Repositorio;
 using RestApiNegocio.Repositorio.Implementação;
 using RestApiNegocio.services;
 using System;
@@ -17,16 +19,39 @@ namespace RestApiNegocio.Controllers
     public class AuthController : ControllerBase
     {
         // GET: api/<AuthController>
+        public IUser interfac;
+
+        private readonly ILogger<AuthController> _logger;
+        public AuthController(ILogger<AuthController> logger ,IUser interfac)
+        {
+            _logger= logger;
+            this.interfac = interfac;
+        }
+
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Authenticate([FromBody] Usuario user)
         {
-            var User = UserRepositorio.get(user.Nome, user.Password);
+            var User = interfac.UserLast(user);
             if (User == null)
                 return NotFound(new { message = "Usuario ou senha incorreta" });
             var token = TokenServices.GenerateToken(User);
-            User.Password = "";
+            return new
+            {
+                User = User,
+                token = token
+            };
+        }
+        [HttpPost]
+        [Route("signup")]
+        [AllowAnonymous]
+        public async Task<ActionResult<dynamic>> Signup([FromBody] Usuario user)
+        {
+            var User = interfac.Newuser(user);
+            if (User == null)
+                return NotFound(new { message = "Usuario ou senha incorreta" });
+            var token = TokenServices.GenerateToken(User);
             return new
             {
                 User = User,
